@@ -1,0 +1,10 @@
+mobile:
+  platform-name: Android
+  device-name: 127.0.0.1:62001 #夜神模拟器127.0.0.1:62001， 或者真机的手机名称
+  platform-version: 5.1.1
+  h5-browser:
+
+apk:
+  apk-name: #wx7_0_5.apk
+  app-package:
+  app-activity:
