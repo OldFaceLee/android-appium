@@ -53,6 +53,7 @@ public class MobileDriver extends CommonAppium{
             desiredCapabilities.setCapability("unicodeKeyBoard",true);//支持输入中文
             desiredCapabilities.setCapability("resetKeyboard",true);//重置输入法为appium默认,支持中文输入
             desiredCapabilities.setCapability("noSign",true);//安装时不对apk进行重签名，否则apk重新签名后无法正常使用
+            desiredCapabilities.setCapability("noReset",true);//启动后、结束后不清空应用数据
         }else {
             desiredCapabilities.setCapability(CapabilityType.PLATFORM_NAME,"IOS");//指定手机系统平台
 //            desiredCapabilities.setCapability("deviceName",avdIpPortOrTruePhoneName);//真机ios
