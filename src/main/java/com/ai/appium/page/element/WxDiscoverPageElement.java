@@ -6,15 +6,13 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
 
+
+import java.util.concurrent.TimeUnit;
+
 public class WxDiscoverPageElement{
 
     public WxDiscoverPageElement(AndroidDriver androidDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(androidDriver),this);
-        try {
-            Thread.sleep(17000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        PageFactory.initElements(new AppiumFieldDecorator(androidDriver,25,TimeUnit.SECONDS),this);
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"发现\")")

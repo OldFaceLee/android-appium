@@ -16,12 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class StartPageElement extends CommonAppium {
 
     public StartPageElement(AndroidDriver androidDriver){
-        PageFactory.initElements(new AppiumFieldDecorator(androidDriver),this);
-        try {
-            Thread.sleep(30000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        PageFactory.initElements(new AppiumFieldDecorator(androidDriver,25,TimeUnit.SECONDS),this);
     }
 
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.tencent.mm:id/ecv\")")
