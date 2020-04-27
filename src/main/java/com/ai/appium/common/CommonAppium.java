@@ -9,11 +9,15 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import lombok.extern.slf4j.Slf4j;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 @Slf4j
 public class CommonAppium {
@@ -195,7 +199,53 @@ public class CommonAppium {
         sleep(0.5);
     }
 
+    /**
+     *截屏，自动生成工程下/screenshot/yyyyMMdd/下的截图
+     */
     public static void snapShot(String caseName){
+        String dailyPath = new SimpleDateFormat("yyyyMMdd").format(new Date());
+        String screenShotRootFolder = System.getProperty("user.dir")+ File.separator+"screenshot"+File.separator;
+        if(!new File(screenShotRootFolder).isDirectory()){
+            new File(screenShotRootFolder).mkdir();
+        }
+        File sourceScreen = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        InputStream is = null;
+        OutputStream os = null;
+        String screenFileName = caseName+"_"+new SimpleDateFormat("yyyMMdd_HH:mm:ss").format(new Date())+".png";
+        String target = screenShotRootFolder + File.separator + dailyPath+ File.separator;
+        if(!new File(target).isDirectory()){
+            new File(target).mkdir();
+        }
+        try {
+            is = new FileInputStream(sourceScreen);
+            os = new FileOutputStream(target+File.separator+screenFileName);
+            byte[] buff = new byte[1024];
+            int len = 0;
+            while((len = is.read(buff, 0, buff.length)) != -1) {
+                os.write(buff, 0, len);
+            }
+            log.info("Appium进行截图操作："+ target+File.separator+screenFileName);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if(os!=null){
+                try {
+                    os.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if(is!=null){
+                        try {
+                            is.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
 
     }
 
