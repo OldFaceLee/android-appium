@@ -1,11 +1,5 @@
 package com.ai.appium;
 
-import com.ai.appium.common.MobileDriver;
-import com.ai.appium.common.PhoneEnum;
-import com.ai.appium.page.element.WxDiscoverPageElement;
-import com.ai.appium.page.service.IWxDiscoverPageSv;
-import com.ai.appium.page.service.StartPageSv;
-import com.ai.appium.page.service.impl.WxDiscoverPageSvImpl;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 

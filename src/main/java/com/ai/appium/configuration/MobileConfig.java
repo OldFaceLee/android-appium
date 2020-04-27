@@ -1,4 +1,3 @@
-/*
 package com.ai.appium.configuration;
 
 
@@ -17,17 +16,13 @@ import org.springframework.stereotype.Component;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class MobileConfig {
 
-    @Value(value = "${mobile.platform-name}")
     String platformName;
 
-    @Value(value = "${mobile.device-name}")
     String deviceName;
 
-    @Value(value = "${mobile.platform-version}")
     String platformVersion;
 
-    @Value(value = "${mobile.h5-browser}")
     String h5Browser;
 
 }
-*/
+

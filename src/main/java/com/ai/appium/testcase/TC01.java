@@ -1,7 +1,7 @@
 package com.ai.appium.testcase;
 
 import com.ai.appium.common.CommonAppium;
-import com.ai.appium.common.TestDriver;
+import com.ai.appium.common.PhoneDriver;
 import com.ai.appium.support.ITestCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +18,11 @@ import java.util.Map;
 public class TC01 extends CommonAppium implements ITestCase {
 
     @Autowired
-    TestDriver drivers;
+    PhoneDriver engine;
 
     @Override
     public void runScript(Map<String, String> excelMap) {
-        System.out.println(drivers.getMobileDriver().equals(driver));
+        engine.createPhoneDriver();
+        driver.launchApp();
     }
 }

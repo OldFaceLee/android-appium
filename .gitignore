@@ -1,3 +1,6 @@
-apk/*.apk
+apk
 .idea
 target
+logs
+
+*.apk

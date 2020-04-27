@@ -8,3 +8,7 @@ app:
   apk-name: wx7_0_5.apk
   app-package:
   app-activity:
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
