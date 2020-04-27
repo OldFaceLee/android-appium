@@ -195,6 +195,18 @@ public class CommonAppium {
         sleep(0.5);
     }
 
+    public static void snapShot(String caseName){
+
+    }
+
+    /**
+     * 关闭driver
+     */
+    public static void quitDriver(){
+        driver.quit();
+        log.info("关闭driver");
+    }
+
 
     public static void sendKeyByAdb(PlatformEnum platformEnum,String phoneDeviceNumber,String value){
         try {
