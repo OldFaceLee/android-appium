@@ -1,11 +1,11 @@
 package com.ai.appium.common;
 
+import com.ai.appium.support.util.RuntimeUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import lombok.extern.slf4j.Slf4j;
@@ -258,19 +258,13 @@ public class CommonAppium {
     }
 
 
-    public static void sendKeyByAdb(PlatformEnum platformEnum,String phoneDeviceNumber,String value){
-        try {
-        switch (platformEnum){
-            case WINDOWS:
-                Runtime.getRuntime().exec("adb -s "+phoneDeviceNumber+"shell input text "+value);
-                break;
-            case MAC:
-                break;
-            case LINUX:
-                break;
-        } } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    /**
+     * 通过adb进行输入
+     * @param phoneDeviceNumber
+     * @param value
+     */
+    public static void sendKeyByAdb(String phoneDeviceNumber,String value){
+        RuntimeUtil.exeCmd("adb -s "+phoneDeviceNumber+"shell input text "+value);
     }
+
 }
