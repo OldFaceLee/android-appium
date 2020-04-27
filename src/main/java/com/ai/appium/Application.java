@@ -6,16 +6,17 @@ import com.ai.appium.page.element.WxDiscoverPageElement;
 import com.ai.appium.page.service.IWxDiscoverPageSv;
 import com.ai.appium.page.service.StartPageSv;
 import com.ai.appium.page.service.impl.WxDiscoverPageSvImpl;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-//@SpringBootApplication(scanBasePackages = "com.ai.appium")
+@SpringBootApplication()
 public class Application {
 
     public static void main(String[] args) {
 //        SpringApplication.run(Application.class,args);
-        MobileDriver mobileDriver = new MobileDriver(PhoneEnum.ANDROID_AVD,true);
-        IWxDiscoverPageSv wxSv = new WxDiscoverPageSvImpl();
-        wxSv.goToDiscoverPage();
+//        MobileDriver mobileDriver = new MobileDriver(PhoneEnum.ANDROID_AVD,true);
+//        IWxDiscoverPageSv wxSv = new WxDiscoverPageSvImpl();
+//        wxSv.goToDiscoverPage();
 
 
     }

@@ -1,4 +1,3 @@
-/*
 package com.ai.appium.configuration;
 
 import lombok.AccessLevel;
@@ -10,21 +9,19 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("apk")
+@ConfigurationProperties("app")
 @Getter
 @Setter
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ApkConfig {
+public class AppConfig {
 
-    @Value(value = "${apk.apk-name}")
     String apkName;
 
-    @Value(value = "${apk.app-package}")
+    @Value(value = "${app.app-package}")
     String appPackage;
 
-    @Value(value = "${apk.app-activity}")
+    @Value(value = "${app.app-activity}")
     String appActivity;
 
 
 }
-*/
